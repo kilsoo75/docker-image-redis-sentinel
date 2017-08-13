@@ -22,7 +22,6 @@ fi
 if [ "$1" = 'redis-server' -a "$(id -u)" = '0' ]; then
 	chown -R redis .
 	exec gosu redis "$0" "$@"
-	echo "process is here?"
 fi
 
 exec "$@"
