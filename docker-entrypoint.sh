@@ -10,6 +10,15 @@ else
 	sed -i 's/masterpassword/'"$MASTER_DEFAULT_PASSWORD"'/g' /usr/local/etc/redis/redis-sentinel.conf
 fi
 
+# replace master dns name
+
+if [ "x$MASTER_NAME" != "x" ]
+then
+  sed -i 's/mastername/'"$MASTER_NAME"'/g' /usr/local/etc/redis/redis-sentinel.conf
+else
+  sed -i 's/mastername/'"$MASTER_DEFAULT_NAME"'/g' /usr/local/etc/redis/redis-sentinel.conf
+fi
+
 
 # first arg is `-f` or `--some-option`
 # or first arg is `something.conf`
